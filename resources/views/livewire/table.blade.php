@@ -1,12 +1,24 @@
 <div wire:init="load">
 
+
+            
     @if ( !$readyToLoad )
     @include('dash.components.loading')
     @else
 
     <div class="card ">
         <div class="card-header">
-            <h5 class="card-title"> {{ __("dash/min.{$table['title']}") }} </h5>
+            <h5 class="card-title"> {{ __("dash/min.{$table['title']}") }} </h5> 
+
+            <div class="float-right"> 
+                
+            <button
+                class="btn btn-primary"
+                wire:click="$emitTo('t-switch', 'updateShow','create')"
+            >
+            {{__("dash/components/table.new") }}
+            </button>
+            </div>
         </div>
 
         <div class="card-body">

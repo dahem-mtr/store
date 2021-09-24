@@ -4,19 +4,14 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class ItemInfo extends Component
+class Create extends Component
 {
-
-
-    
     public $readyToLoad = false;
-    public $rowId ;
     public $controller;
     
     
-    public function mount($controller,$rowId)
+    public function mount($controller)
     {
-        $this->rowId = $rowId;
         $this->controller = $controller;
 
     }
@@ -27,18 +22,16 @@ class ItemInfo extends Component
     }
 
     
-    
     public function render()
     {
-       
+         
         $data = [] ;
 
         if ($this->readyToLoad) {
            
-            $data =  app()->call($this->controller[0].'@'.$this->controller['methods']['show'], ['id'=>$this->rowId]);
+            $data =  app()->call($this->controller[0].'@'.$this->controller['methods']['create']);
 
         }
-
-        return view('livewire.item-info',['data'=> $data]);
+        return view('livewire.create',['data'=> $data]);
     }
 }

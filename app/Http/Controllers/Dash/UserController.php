@@ -34,7 +34,8 @@ class UserController extends Controller
             // pass controller data to livewire crud component 
             $controller = [UserController::class,'methods'=> [
                 'red'=> 'users',
-                'show'=> 'show'
+                'show'=> 'show',
+                'create'=> 'create'
             ]];
 
         return view('dash.users.index',compact(['controller']));
@@ -76,7 +77,21 @@ class UserController extends Controller
      */
     public function create()
     {
-        return 'hiw';
+
+        $inputs = [[
+            ['name'=>'name',
+            'type'=> 'text',
+            'value'=> 'sami'
+        ],
+        ['name'=>'email',
+        'type'=> 'text',
+        'value'=> 'admin@admin.com'
+        ],
+        
+
+        ]];
+
+        return dd($inputs);
     }
 
     
@@ -100,7 +115,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request,$id)
+    public function show($id)
     {
            
         $user = User::find($id);

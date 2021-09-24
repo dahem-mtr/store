@@ -4,12 +4,13 @@
 
 @if ($show == "table" )
 
-    <livewire:table  :controller="$controller"/>
-@endif
+<livewire:table  :controller="$controller"/>
 
-@if ($show == "info" )
+@elseif ($show == "info" )
 <livewire:item-info :controller="$controller" :rowId="$rowId"/>
 
+@elseif ($show == "create" )
+<livewire:create :controller="$controller"  />
 @endif
 
 

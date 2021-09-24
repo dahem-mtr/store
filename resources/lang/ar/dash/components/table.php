@@ -3,6 +3,7 @@
 return [
     'show' => 'مشاهدة',
     'edit' => 'تعديل',
+    'new' => 'جديد',
     'delete' => 'حذف',
     'actions' => 'ادوات',
     'there-is-no-data' => 'لاتوجد بيانات',
